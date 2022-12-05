@@ -16,7 +16,8 @@ import { initCreateEconomyLogin } from "./src/pages/createLogins/userEconomy/eco
 import { initAllUserLogin } from "./src/pages/createLogins/allUsers/allUsersLogin.js";
 
 //Damage Matrix
-import { initDamageMatrix } from "./src/pages/damageMatrix/matrix/damageMatrix.js";
+import { initDamageMatrix } from "./src/pages/damageMatrix/matrix/addDamageMatrix/damageMatrix.js";
+import { initAddSpecificDamage } from "./src/pages/damageMatrix/specificDamage/addSpecificDamage/addSpecificDamage.js";
 
 window.addEventListener("load", async () => {
   const templateHome = await loadHtml("./src/pages/home/home.html")
@@ -35,7 +36,9 @@ window.addEventListener("load", async () => {
   const templateAllUsersLogin = await loadHtml("./src/pages/createLogins/allUsers/allUsersLogin.html")
 
   //Damage matrix
-  const templateDamageMatrix = await loadHtml("./src/pages/damageMatrix/matrix/damageMatrix.html")
+  const templateDamageMatrix = await loadHtml("./src/pages/damageMatrix/matrix/addDamageMatrix/damageMatrix.html")
+  const templateAddDamage = await loadHtml("./src/pages/damageMatrix/specificDamage/addSpecificDamage/addSpecificDamage.html")
+
 
 
   const router = new Navigo("/", { hash: true });
@@ -79,6 +82,10 @@ window.addEventListener("load", async () => {
       "/create/damage-matrix": () => {
         renderTemplate(templateDamageMatrix, "content")
         initDamageMatrix()
+      },
+      "/create/damage": () => {
+        renderTemplate(templateAddDamage, "content")
+        initAddSpecificDamage()
       },
       "/users/all": () => {
         renderTemplate(templateAllUsersLogin, "content")

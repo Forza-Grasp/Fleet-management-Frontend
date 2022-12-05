@@ -1,7 +1,7 @@
-import { checkRoleAdmin,checkTokenPost,checkTokenGet,checkTokenDelete,checkTokenPut } from "../../../js/loginSettings.js";
-import { handleHttpErrors } from "../../../../utils.js";
-import { getUserBuyerCompanyName } from "../../createLogins/allUsers/allUsersLogin.js";
-import { SERVER_URL } from "../../../../settings.js";
+import { checkRoleAdmin,checkTokenPost,checkTokenGet,checkTokenDelete,checkTokenPut } from "../../../../js/loginSettings.js";
+import { handleHttpErrors } from "../../../../../utils.js";
+import { getUserBuyerCompanyName } from "../../../createLogins/allUsers/allUsersLogin.js";
+import { SERVER_URL } from "../../../../../settings.js";
 let MATRIX_URL = SERVER_URL + "/damageMatrix";
 
 
