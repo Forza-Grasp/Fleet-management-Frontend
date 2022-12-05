@@ -38,28 +38,3 @@ export async function getDamageMatrixByUserId(userId){
 export async function deleteMatrixById(matrixId){
     return await fetch(MATRIX_URL + "/" + matrixId, await checkTokenDelete()).then(res => handleHttpErrors(res));
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

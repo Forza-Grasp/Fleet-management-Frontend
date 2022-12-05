@@ -1,5 +1,5 @@
 import { SERVER_URL } from "../../../../../settings.js";
-import {checkTokenPost,checkRoleAdmin } from "../../../../js/loginSettings.js";
+import {checkTokenPost,checkRoleAdmin,checkTokenGet,checkTokenDelete } from "../../../../js/loginSettings.js";
 import { handleHttpErrors } from "../../../../../utils.js";
 
 let DAMAGE_URL = SERVER_URL + "/specificDamage";
@@ -26,3 +26,10 @@ async function addDamage(){
     document.getElementById("response-text-damage").innerText = "Damage added to damage matrix damage: " + damageRes.damages;
 }
 
+export async function getSpecificDamageByMatrixId(matrixId){
+    return await fetch(DAMAGE_URL + "/damageMatrix/" + matrixId, await checkTokenGet()).then(res => handleHttpErrors(res));
+}
+
+export async function deleteSpecificDamageById(damageId){
+    return await fetch(DAMAGE_URL + "/" + damageId, await checkTokenDelete()).then(res => handleHttpErrors(res));
+}
