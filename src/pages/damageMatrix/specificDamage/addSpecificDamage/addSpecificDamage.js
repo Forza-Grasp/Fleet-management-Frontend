@@ -10,8 +10,6 @@ export async function initAddSpecificDamage(){
     document.getElementById("specific-damage-create-btn").onclick = addDamage;
 }
 
-
-
 async function addDamage(){
     let damage = document.getElementById("damage-input")
     let price = document.getElementById("price-input")
