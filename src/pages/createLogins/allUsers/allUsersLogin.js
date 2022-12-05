@@ -139,6 +139,12 @@ function openTable(evt, tableId) {
     evt.currentTarget.className += " active";
 }
 
+export async function getUserBuyerCompanyName(id){
+    const response = await fetch(URL_BUYER + "/" + id, await checkTokenGet())
+    const data = await response.json()
+    return data.companyName
+
+}
 
 
 

@@ -15,6 +15,9 @@ import { initCreateLeaserLogin } from "./src/pages/createLogins/userLeaser/lease
 import { initCreateEconomyLogin } from "./src/pages/createLogins/userEconomy/economyLogin.js";
 import { initAllUserLogin } from "./src/pages/createLogins/allUsers/allUsersLogin.js";
 
+//Damage Matrix
+import { initDamageMatrix } from "./src/pages/damageMatrix/matrix/damageMatrix.js";
+
 window.addEventListener("load", async () => {
   const templateHome = await loadHtml("./src/pages/home/home.html")
   const templateCreateBrand = await loadHtml("./src/pages/create-brand/create-brand.html")
@@ -30,6 +33,9 @@ window.addEventListener("load", async () => {
   const templateLeaserLogin = await loadHtml("./src/pages/createLogins/userLeaser/leaserLogin.html")
   const templateEconomyLogin = await loadHtml("./src/pages/createLogins/userEconomy/economyLogin.html")
   const templateAllUsersLogin = await loadHtml("./src/pages/createLogins/allUsers/allUsersLogin.html")
+
+  //Damage matrix
+  const templateDamageMatrix = await loadHtml("./src/pages/damageMatrix/matrix/damageMatrix.html")
 
 
   const router = new Navigo("/", { hash: true });
@@ -69,6 +75,10 @@ window.addEventListener("load", async () => {
       "/create/login/economy": () => {
         renderTemplate(templateEconomyLogin, "content")
         initCreateEconomyLogin()
+      },
+      "/create/damage-matrix": () => {
+        renderTemplate(templateDamageMatrix, "content")
+        initDamageMatrix()
       },
       "/users/all": () => {
         renderTemplate(templateAllUsersLogin, "content")
