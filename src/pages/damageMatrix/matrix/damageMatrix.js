@@ -11,7 +11,6 @@ export async function initDamageMatrix(){
     document.getElementById("damageMatrix-create-btn").onclick = createDamageMatrix;
 }
 
-
 export async function createDamageMatrix(){
 
     let userId = document.getElementById("buyer-id-input")
