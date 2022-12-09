@@ -47,8 +47,8 @@ async function getAllKeyNumbers() {
     document.getElementById("activeCampaigns").innerHTML = "Active Campaigns: " + activeCampaigns.toFixed(0);
     document.getElementById("campaignsWithBids").innerHTML = "Campaigns With bids: " + campaignsWithBids.toFixed(0);
     document.getElementById("campaignsWithAcceptedBids").innerHTML = "Campaigns with accepted bids: " + campaignsWithAcceptedBids.toFixed(0);
-
-
-
 }
+
+
+
 
