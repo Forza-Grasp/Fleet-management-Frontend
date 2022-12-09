@@ -9,13 +9,13 @@ export const tokenInfo = {
 export async function checkTokenGet() {
     const options = {
         method: "GET",
-        headers: {"Accept": "application/json"}
+        headers: { "Accept": "application/json" }
     };
 
     if (localStorage.getItem("token") == null) {
         return options;
     }
-//remove big if statement to begin the security process
+    //remove big if statement to begin the security process
     if (localStorage.getItem("token") !== null) {
         const token = localStorage.getItem("token")
         if (!token) {
@@ -40,7 +40,7 @@ export async function checkTokenPost(object) {
     if (localStorage.getItem("token") == null) {
         return options;
     }
-//remove big if statement to begin the security process
+    //remove big if statement to begin the security process
     if (localStorage.getItem("token") !== null) {
         const token = localStorage.getItem("token")
         if (!token) {
@@ -89,7 +89,7 @@ export async function checkTokenPut(object) {
     if (localStorage.getItem("token") == null) {
         return options;
     }
-//remove big if statement to begin the security process
+    //remove big if statement to begin the security process
     if (localStorage.getItem("token") !== null) {
         const token = localStorage.getItem("token")
         if (!token) {
@@ -105,13 +105,13 @@ export async function checkTokenPut(object) {
 export async function checkTokenDelete() {
     const options = {
         method: "DELETE",
-        headers: {"Accept": "application/json"}
+        headers: { "Accept": "application/json" }
     };
 
     if (localStorage.getItem("token") == null) {
         return options;
     }
-//remove big if statement to begin the security process
+    //remove big if statement to begin the security process
     if (localStorage.getItem("token") !== null) {
         const token = localStorage.getItem("token")
         if (!token) {
@@ -233,4 +233,18 @@ export function checkRoleAdmin() {
     }
 
 
+}
+export function checkAllRoles() {
+    if (tokenInfo.roles === null) {
+        const divs = document.querySelectorAll('.all-roles');
+        divs.forEach(div => {
+            div.style.display = "none";
+        });
+    }
+    else if (tokenInfo.roles !== null) {
+        const divs = document.querySelectorAll('.all-roles');
+        divs.forEach(div => {
+            div.style.display = "block";
+        });
+    }
 }

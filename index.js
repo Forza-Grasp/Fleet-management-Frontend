@@ -1,6 +1,9 @@
 import "https://unpkg.com/navigo"  //Will create the global Navigo object used below
 import {loadHtml, adjustForMissingHash, setActiveLink, renderTemplate} from "./utils.js"
 
+//Campaign
+import { initAllCampaigns } from "./src/pages/campaign/allCampaigns.js";
+
 
 //Brand
 import { initCreateBrand } from "./src/pages/create-brand/createBrand.js";
@@ -62,6 +65,10 @@ window.addEventListener("load", async () => {
 
   //black list
   const templateCreateBlackList = await loadHtml("./src/pages/create-blacklist/createBlackList.html")
+
+  //campaign
+  const templateAllCampaigns = await loadHtml("./src/pages/campaign/allCampaigns.html")
+
 
   const router = new Navigo("/", { hash: true });
   window.router = router
@@ -147,6 +154,10 @@ window.addEventListener("load", async () => {
        "/color-mix/add": (match) => { //just made
          renderTemplate(templateAddColorMix, "content")
          initAddColorMix(router, match)
+       },
+       "/campaign/all": (match) => {
+         renderTemplate(templateAllCampaigns, "content")
+         initAllCampaigns(router)
        },
       "/edit-brand":(match) =>{
         renderTemplate(templateEditBrand,"content")
