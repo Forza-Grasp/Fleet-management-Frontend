@@ -16,26 +16,39 @@ async function getAllCompaigns() {
     const allCampaigns = await fetch(URL, await checkTokenGet()).then(r => r.json());
 
     console.log(allCampaigns)
+    let activeCampaigns = 0;
+    let campaignsWithBids = 0;
+    let campaignsWithAcceptedBids = 0;
+
+    for (let i = 0; i < allCampaigns.length; i++) {
+        if (allCampaigns[i].campaignStatus === "ACTIVE") {
+            console.log(allCampaigns[i])
+            activeCampaigns++
+        }
+    }
+    for (let i = 0; i < allCampaigns.length; i++) {
+        for (let y = 0; y < allCampaigns[i].campaignBid.length; y++) {
+            if (allCampaigns[i].campaignBid[y].campaignBidStatus === "CURRENT_OFFER") {
+                campaignsWithBids++
+                console.log(allCampaigns[i].campaignBid[y])
+            }
+        }
+    }
 
     for (let i = 0; i < allCampaigns.length; i++) {
         for (let y = 0; y < allCampaigns[i].campaignBid.length; y++) {
-            let activeCampaigns = 0;
-            let campaignsWithBids = 0;
-            let campaignsWithAcceptedBids = 0;
-            console.log(allCampaigns[i])
-            if (allCampaigns[i].campaignStatus === "ACTIVE") {
-                activeCampaigns++
-            }
-            if (allCampaigns[i].campaignBid[y].campaignBidStatus === "CURRENT_OFFER") {
-                campaignsWithBids++
-            }
+        
             if (allCampaigns[i].campaignBid[y].campaignBidStatus === "ACCEPTED_OFFER") {
                 campaignsWithAcceptedBids++
             }
-            console.log(activeCampaigns)
-            console.log(campaignsWithBids)
-            console.log(campaignsWithAcceptedBids)
         }
     }
+
+    document.getElementById("activeCampaigns").innerHTML = "Active Campaigns: "+activeCampaigns.toFixed(0);
+    document.getElementById("campaignsWithBids").innerHTML = campaignsWithBids.toFixed(0);
+    document.getElementById("campaignsWithAcceptedBids").innerHTML = campaignsWithAcceptedBids.toFixed(0);
+
+
+
 }
 
