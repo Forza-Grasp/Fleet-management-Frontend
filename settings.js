@@ -1,5 +1,3 @@
 
-export let SERVER_URL = "http://localhost:8080/api"
-export let AUTH_URL = "http://localhost:8080/api/auth"
-
-export let SPECIFIC_CAR_MODEL_URL = "http://localhost:8080/api/specific-car-model"
+export let SERVER_URL = "https://fleet-management-kwb.azurewebsites.net/api"
+export let AUTH_URL = "https://fleet-management-kwb.azurewebsites.net/api/auth"
