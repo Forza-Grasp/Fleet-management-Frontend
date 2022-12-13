@@ -1,30 +1,46 @@
-export function rowHighlight(tableId) {
-    document.getElementById(tableId).onclick = (element) => {
+export function rowHighlight() {
+    let tableBody = document.getElementById("table-body");
+    if(tableBody.children.length != null){
+
+        tableBody.onclick = (element) => {
         let id = element.target.id
-        if (id.endsWith("-column-id")) {
+        if (id.endsWith("-column-id") || id.endsWith("-menu")) {
             // the clicked row
             let row = document.getElementById(id).closest("tr")
             // the other rows
-            let rows = document.getElementById(tableId).children
-            for (let i = 0; i < rows.length; i++) {
-                if (rows[i] !== row) {
-                    rows[i].style.opacity = "0.5"
+            if (document.getElementById("table-body") === null) {
+                console.error("Element with id 'table-body' not found");
+                return;
+            }
+            if (tableBody.children != null) {
+                let rows = tableBody.children
+
+
+                for (let i = 0; i < rows.length; i++) {
+                    if (rows[i] !== row) {
+                        rows[i].style.opacity = "0.5"
+                    }
                 }
+
             }
         }
 
     }
+        document.getElementById("exampleModal").addEventListener("hidden.bs.modal", () => {
 
+            if (tableBody.children != null) {
 
-    document.getElementById("exampleModal").addEventListener("hidden.bs.modal", () => {
-            let rows = document.getElementById("table-body").children
-            for (let i = 0; i < rows.length; i++) {
-                rows[i].style.opacity = "1"
+                for (let i = 0; i < tableBody.length; i++) {
+                    tableBody[i].style.opacity = "1"
+                }
             }
-
-        }
-    )
+        })
+    }
+    else {
+        console.error("No rows in table")
+    }
 }
+
 
 export function rowHighlightAdmin() {
     document.getElementById("admin-users-tbody").onclick = (element) => {
@@ -44,7 +60,6 @@ export function rowHighlightAdmin() {
             for (let i = 0; i < buttons.length; i++) {
                 if (buttons[i] !== button) {
                     buttons[i].style.background = "#979797"
-
                 }
             }
 
