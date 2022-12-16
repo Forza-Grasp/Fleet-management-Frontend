@@ -6,7 +6,6 @@ let URL = SERVER_URL + "/users/leaser"
 
 export async function initCreateLeaserLogin() {
     checkRoleLeaser();
-    await initGetAllLeaserUsers();
     document.getElementById("leaser-create-login").onclick = leaserLogin
 }
 
